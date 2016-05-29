@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Le Bon Coin{% endblock %}</title>
+
+    <!-- stylesheets -->
+    {% stylesheets "bundles/leboncoin/ext/bootstrap/css/bootstrap.min.css"
+    "bundles/leboncoin/int/leboncoin.css"
+    output="assets/css/leboncoin.css"
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <!-- fix @import bug with combined css -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="skin-oxa mini-navbar">
+<div id="wrapper">
+    <div id="page-wrapper" class="white-bg dashbard-1">
+        {% include 'LeBonCoinBundle:Layout:navbar_static_top.html.twig' %}
+        {% block body %}
+        {% endblock %}
+    </div>
+    {% include 'LeBonCoinBundle:Layout:footer.html.twig' %}
+</div>
+
+<!-- main core javascripts -->
+{% javascripts "@LeBonCoinBundle/Resources/public/ext/jquery-1.11.0/jquery.min.js"
+"@LeBonCoinBundle/Resources/public/ext/bootstrap-3.1.1-dist/js/bootstrap.min.js"
+"@LeBonCoinBundle/Resources/public/ext/jquery-ui-1.10.4/js/jquery-ui.min.js"
+
+output="assets/js/combined.js"
+%}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+
+<!-- page custom js -->
+{% block javascript_custom %}{% endblock %}
+</body>
+</html>

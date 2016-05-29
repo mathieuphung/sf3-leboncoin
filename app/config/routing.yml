@@ -1,3 +1,7 @@
+le_bon_coin:
+    resource: "@LeBonCoinBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
