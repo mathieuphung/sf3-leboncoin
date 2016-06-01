@@ -1,7 +1,9 @@
-{% extends "::base.html.twig" %}
+{% extends "LeBonCoinBundle::layout.html.twig" %}
 
-{% block title %}LeBonCoinBundle:Advert:Edit{% endblock %}
+{% block title %}Poster une annonce{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Advert:Edit page</h1>
+    <h1>Ajouter une annonce</h1>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
 {% endblock %}
