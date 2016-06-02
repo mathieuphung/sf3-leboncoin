@@ -29,6 +29,7 @@ class AdvertController extends Controller
             }
             $em->persist($advert);
             $em->flush();
+            return $this->redirectToRoute('leboncoin_index');
         }
         return $this->render('LeBonCoinBundle:Advert:edit.html.twig', array(
             "form" => $form->createView(),

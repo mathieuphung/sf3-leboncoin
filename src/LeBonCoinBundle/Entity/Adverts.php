@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="adverts")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="LeBonCoinBundle\Entity\AdvertsRepository")
  */
 class Adverts
 {

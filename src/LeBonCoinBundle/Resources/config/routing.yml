@@ -11,5 +11,5 @@ leboncoin_show_advert:
     defaults: { _controller: LeBonCoinBundle:Advert:show, id: null }
 
 leboncoin_search:
-    path:     /search/{query}
+    path:     /search
     defaults: { _controller: LeBonCoinBundle:Search:index }
