@@ -12,7 +12,7 @@ class AdvertController extends Controller
     public function editAction(Request $request)
     {
         $advert = new Adverts();
-        $form = $this->createForm(AdvertsForm::class, $advert, array("action" => $this->generateUrl('leboncoin_edit')));
+        $form = $this->createForm(AdvertsForm::class, $advert, array("action" => $this->generateUrl('leboncoin_edit_advert')));
         $form->handleRequest($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -34,4 +34,16 @@ class AdvertController extends Controller
             "form" => $form->createView(),
         ));
     }
+    
+    public function showAction($id = null)
+    {
+        if($id)
+            $advert = $this->getDoctrine()->getRepository('LeBonCoinBundle:Adverts')->findOneById($id);
+        else
+            return $this->redirectToRoute('leboncoin_index');
+        return $this->render('LeBonCoinBundle:Advert:show.html.twig', array(
+            "advert" => $advert,
+        ));
+    }
+
 }

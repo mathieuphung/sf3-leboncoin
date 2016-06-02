@@ -4,4 +4,12 @@ leboncoin_index:
 
 leboncoin_edit_advert:
     path:     /advert/edit
-    defaults: { _controller: LeBonCoinBundle:Advert:Edit }
+    defaults: { _controller: LeBonCoinBundle:Advert:edit }
+
+leboncoin_show_advert:
+    path:     /advert/show/{id}
+    defaults: { _controller: LeBonCoinBundle:Advert:show, id: null }
+
+leboncoin_search:
+    path:     /search/{query}
+    defaults: { _controller: LeBonCoinBundle:Search:index }

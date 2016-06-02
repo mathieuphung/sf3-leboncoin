@@ -7,7 +7,7 @@
     <h1>Liste des annonces</h1>
     {% for advert in adverts %}
         <div class="col-md-offset-1 col-md-10" style="margin-bottom: 20px">
-            <a href="{{ url("leboncoin_show_advert") }}">
+            <a href="{{ path('leboncoin_show_advert', {'id': advert.id}) }}">
                 {% for image in advert.images %}
                     <img src="{{ asset(image.getUploadDir ~ '/' ~ image.url) }}" alt="image.url" class="col-md-3">
                 {% endfor %}
