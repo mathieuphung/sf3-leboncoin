@@ -9,12 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdvertController extends Controller
 {
-    public function EditAction($id = null, Request $request)
+    public function editAction(Request $request)
     {
-        if ($id)
-            $advert = $this->getDoctrine()->getRepository('LeBonCoinBundle:Adverts')->findOneById($id);
-        else
-            $advert = new Adverts();
+        $advert = new Adverts();
         $form = $this->createForm(AdvertsForm::class, $advert, array("action" => $this->generateUrl('leboncoin_edit')));
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -37,5 +34,4 @@ class AdvertController extends Controller
             "form" => $form->createView(),
         ));
     }
-
 }

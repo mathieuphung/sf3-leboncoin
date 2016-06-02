@@ -3,7 +3,40 @@
 {% block title %}Poster une annonce{% endblock %}
 
 {% block body %}
+<div class="col-md-offset-1 col-md-10">
     <h1>Ajouter une annonce</h1>
-    {{ form_start(form) }}
-    {{ form_end(form) }}
+    <div id="advert_block" class="col-md-offset-3 col-md-6">
+        {{ form_start(form) }}
+        <div class="form-group">
+            <span class="label label-default">Auteur : </span>
+            {{ form_widget(form.author, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <span class="label label-default">E-mail : </span>
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <span class="label label-default">Numéro de téléphone : </span>
+            {{ form_widget(form.telephoneNumber, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <span class="label label-default">Titre : </span>
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <span class="label label-default">Description : </span>
+            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <span class="label label-default">Images : </span>
+            {{ form_widget(form.images, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            <span class="label label-default">Categories : </span>
+            {{ form_widget(form.categories, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_row(form.save, { 'attr': {'class': 'form-control btn btn-primary'}, 'label': 'Enregistrer' }) }}
+        {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}

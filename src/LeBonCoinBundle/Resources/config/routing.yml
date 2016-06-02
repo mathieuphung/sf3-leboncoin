@@ -2,6 +2,6 @@ leboncoin_index:
     path:     /
     defaults: { _controller: LeBonCoinBundle:Home:index }
 
-leboncoin_edit:
-    path:     /edit/{id}
-    defaults: { _controller: LeBonCoinBundle:Advert:Edit, id: null }
+leboncoin_edit_advert:
+    path:     /advert/edit
+    defaults: { _controller: LeBonCoinBundle:Advert:Edit }

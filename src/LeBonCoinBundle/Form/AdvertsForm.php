@@ -18,8 +18,12 @@ class AdvertsForm extends AbstractType
     {
         $builder
             ->add('author', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('telephoneNumber', NumberType::class)
+            ->add('email', EmailType::class, array(
+                'required' => false,
+            ))
+            ->add('telephoneNumber', NumberType::class, array(
+                'required' => false,
+            ))
             ->add('name', TextType::class)
             ->add('description', TextareaType::class)
             ->add('images', ImagesForm::class, array(

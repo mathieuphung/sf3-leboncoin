@@ -3,5 +3,20 @@
 {% block title %}Les annonces{% endblock %}
 
 {% block body %}
-<h1>Bienvenue</h1>
+<div class="col-md-offset-1 col-md-10">
+    <h1>Liste des annonces</h1>
+    {% for advert in adverts %}
+        <div class="col-md-offset-1 col-md-10" style="margin-bottom: 20px">
+            <a href="{{ url("leboncoin_show_advert") }}">
+                {% for image in advert.images %}
+                    <img src="{{ asset(image.getUploadDir ~ '/' ~ image.url) }}" alt="image.url" class="col-md-3">
+                {% endfor %}
+                <div class="col-md-7">
+                    <h4>{{ advert.name }}</h4>
+                    <p>{{ advert.description }}</p>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

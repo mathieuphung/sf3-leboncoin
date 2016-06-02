@@ -120,11 +120,11 @@ class Images
 
     public function getUploadDir()
     {
-        return 'uploads/img';
+        return 'bundles/leboncoin/img';
     }
 
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
     }
 }
