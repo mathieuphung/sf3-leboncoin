@@ -8,9 +8,9 @@
     {% for advert in adverts %}
         <div class="col-md-offset-1 col-md-10" style="margin-bottom: 20px">
             <a href="{{ path('leboncoin_show_advert', {'id': advert.id}) }}">
-                {% for image in advert.images %}
-                    <img src="{{ asset(image.getUploadDir ~ '/' ~ image.url) }}" alt="image.url" class="col-md-3">
-                {% endfor %}
+                {% if advert.images is defined %}
+                    <img src="{{ asset(advert.images.0.getUploadDir ~ '/' ~ advert.images.0.url) }}" alt="{{ advert.images.0.url }}" class="col-md-3">
+                {% endif %}
                 <div class="col-md-7">
                     <h4>{{ advert.name }}</h4>
                     <p>{{ advert.description }}</p>

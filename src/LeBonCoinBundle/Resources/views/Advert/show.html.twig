@@ -6,10 +6,25 @@
     <div class="col-md-offset-1 col-md-10">
         <h1>Annonces</h1>
         <div class="col-md-offset-1 col-md-10" style="margin-bottom: 20px">
-            <h2 class="text-center">{{ advert.name }}</h2>
-            {% for image in advert.images %}
-                <img src="{{ asset(image.getUploadDir ~ '/' ~ image.url) }}" alt="image.url" class="col-md-offset-3 col-md-6">
-            {% endfor %}
+            <h2>{{ advert.name }}</h2>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    {% for image in advert.images %}
+                        <div class="item {% if loop.first %}active{% endif %}">
+                            <img src="{{ asset(image.getUploadDir ~ '/' ~ image.url) }}" alt="{{ image.url }}" class="col-md-offset-3 col-md-6">
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div> <!-- Carousel -->
             <div class="col-md-12">
                 <p>{{ advert.description }}</p>
                 <p>
@@ -17,8 +32,8 @@
                     {% if advert.email is defined %}
                         <strong>Email : </strong> {{ advert.email }}<br>
                     {% endif %}
-                    {% if advert.email is defined %}
-                        <strong>Auteur : </strong> {{ advert.telephoneNumber }}<br>
+                    {% if advert.telephoneNumber is defined %}
+                        <strong>Téléphone : </strong> 0{{ advert.telephoneNumber }}<br>
                     {% endif %}
                 </p>
             </div>
