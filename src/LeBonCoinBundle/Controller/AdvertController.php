@@ -38,12 +38,17 @@ class AdvertController extends Controller
     
     public function showAction($id = null)
     {
-        if($id)
+        if($id) {
             $advert = $this->getDoctrine()->getRepository('LeBonCoinBundle:Adverts')->findOneById($id);
+            $day = $advert->getDate()->format('d/m/Y');
+            $time = $advert->getDate()->format('H:i');
+        }
         else
             return $this->redirectToRoute('leboncoin_index');
         return $this->render('LeBonCoinBundle:Advert:show.html.twig', array(
             "advert" => $advert,
+            "day" => $day,
+            "time" => $time,
         ));
     }
 
