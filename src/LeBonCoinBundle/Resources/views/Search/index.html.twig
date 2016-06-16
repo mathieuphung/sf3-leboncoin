@@ -8,8 +8,10 @@
         {% for advert in adverts %}
             <div class="col-md-offset-1 col-md-10" style="margin-bottom: 20px">
                 <a href="{{ path('leboncoin_show_advert', {'id': advert.id}) }}">
-                    {% if advert.images is defined %}
+                    {% if advert.images|length > 0 %}
                         <img src="{{ asset(advert.images.0.getUploadDir ~ '/' ~ advert.images.0.url) }}" alt="{{ advert.images.0.url }}" class="col-md-3">
+                    {% else %}
+                        <img src="http://www.codeodor.com/images/Empty_set.png" alt="empty" class="col-md-3">
                     {% endif %}
                     <div class="col-md-7">
                         <h4>{{ advert.name }}</h4>
